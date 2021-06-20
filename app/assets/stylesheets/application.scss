@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* body */
+ body, p, ol, ul, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 180px;
+    box-sizing: border-box;
+    color: #333333;
+}
+
+a {
+    color: #000;
+}
+
+ .device {
+    padding-top: 36px;
+    font-size: 16px;
+}
+
+.device_frame {
+    max-width: 600px;
+    text-align: center;
+    padding: 24px;
+    margin: 0px auto;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.device p {
+    font-size: 16px;
+}
+
+.device_inner {
+    width: 360px;
+    margin: 0px auto;
+}
+
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+.required-b::before {
+    content: "必須";
+    color: #fff;
+    background-color: #ff0000a8;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0 5px;
+}
+
+.btn-primary {
+    background-color: #4a90e2 !important;
+}
+
+.device a {
+    color: #007bff !important;
+}
+
+.notification {
+    color: #fff;
+    text-align: center;
+}
+
+.notification .notice {
+    background-color: lightBlue;
+}
+
+.notification {
+	line-height:0;
+    font-size:0;
+    margin:0;
+    padding:0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    }    
+
+/* footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    margin-top: 64px;
+    padding-top: 90px;
+    background-color: #111;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+
+
+
