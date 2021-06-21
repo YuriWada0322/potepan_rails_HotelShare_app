@@ -44,11 +44,11 @@
             </button>
             <div class="header-nav-menu">
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/rooms/new">ルーム登録</a>
-                <a class="dropdown-item" href="/reservations">予約済みルーム一覧</a>
-                <a class="dropdown-item" href="/rooms">登録済みルーム一覧</a>
-                <a class="dropdown-item" href="/users/index">設定</a>
-                <a class="dropdown-item" href="/users/sign_out" data-method="delete">ログアウト</a>
+                <%= link_to "ルーム登録", "/rooms/new", class:"dropdown-item" %>
+                <%= link_to "予約済みルーム一覧", "/reservations", class:"dropdown-item" %>
+                <%= link_to "登録済みルーム一覧", "/rooms", class: "dropdown-item" %>
+                <%= link_to "マイページ", "/users/#{current_user.id}", class:"dropdown-item"%>
+                <%= link_to "ログアウト", "/users/sign_out", method: :delete, class:"dropdown-item"%>
               </div>
             </div>
           </div>
