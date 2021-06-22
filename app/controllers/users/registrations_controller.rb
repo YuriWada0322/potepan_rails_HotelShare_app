@@ -47,7 +47,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.find(params[:id])
   end
   
-  private
   #ストロングパラメーター
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :introduce, :image )

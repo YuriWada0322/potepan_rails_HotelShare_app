@@ -15,7 +15,7 @@
 
                 <div class="update-content">
                     <div class="row">
-                        <label class="col-md-3" for="email">アイコン画像</label>
+                        <label class="col-md-3" for="image">アイコン画像</label>
                         <% if @user.image? %>
                         <div class="col-md-9"><%= image_tag @user.image.url %></div>
                         <% end %>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="update-content">
                     <div class="row">
-                        <label class="col-md-3" for="email">ユーザー名</label>
+                        <label class="col-md-3" for="name">ユーザー名</label>
                         <div class="col-md-9"><%= @user.name %></div>
                     </div>
                 </div>
