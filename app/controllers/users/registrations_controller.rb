@@ -38,13 +38,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def edit
+    @q = Room.ransack(params[:q])
+  end
+
   protected
   def after_update_path_for(resource)
     user_path(id: current_user.id)
-  end
-
-  def edit
-    @user = User.find(params[:id])
   end
   
   #ストロングパラメーター
