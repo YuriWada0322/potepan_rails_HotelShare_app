@@ -1,0 +1,32 @@
+<div class="container reservations-new">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="reservations-new-nav">
+                <h4 class="reservations-new-check-content">予約内容確認</h4>
+
+                <h5 class="price-icon"><%= @reservation.room.price.to_i %> / 日</h5>
+                <div class="reservations-new-date-select">
+                  <label for="start_date">チェックイン</label>
+                  <div class="form-control mb-4"><%= @reservation.start_date %></div>
+                  
+                  <label for="end_date">チェックアウト</label>
+                  <div class="form-control mb-4"><%= @reservation.end_date %></div>
+                    
+                  <h6 class="reservations-new-check-content">宿泊日数 : <%= (@reservation.end_date - @reservation.start_date).to_i %>日</h6>
+                  <h6 class="reservations-new-check-content">宿泊人数 : <%= @reservation.people.to_i %>人</h6>
+                  
+                  <label for="total_amount">合計金額</label>
+                  <div class="form-control mb-4"><%= @reservation.total.to_i %></div>
+                  <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
+
+                  <%= form_for @reservation do |f| %>
+                    <%= f.submit "予約を確定", class:"btn btn-primary form-control my-3" %>
+                　<% end %>
+
+                  <%= link_to " ルーム詳細に戻る", :back, class: "btn btn-secondary form-control" %>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

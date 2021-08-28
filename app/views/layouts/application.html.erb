@@ -8,9 +8,84 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   </head>
 
   <body>
+     <header class="header">
+  <div class="header-inner">
+    <div class="header-left-nav">
+        <a href="/"><img alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" ></a>
+        
+        <%= search_form_for @q do |f| %>
+          <div class="header-sharch d-lg-inline-block d-none">
+            <%= f.search_field :address_cont, class: "form-control", placeholder: "エリア" %>
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="header-sharch d-lg-inline-block d-none">
+            <%= f.search_field :room_name_or_description_or_address_cont, class: "form-control", placeholder: "キーワード" %>
+            <i class="fas fa-search"></i>
+          </div>
+          <%= f.submit "", class: "d-none" %>
+        <% end %>
+    </div>
+  </div>
+
+        <% if user_signed_in? %>
+
+        <div class="dropdown">
+          <div class="header-right-nav">
+            <div class="nav-item d-sm-inline-block d-none">
+          　  <%= current_user.name %>
+            </div>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              メニュー
+            </button>
+            <div class="header-nav-menu">
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "ルーム登録", "/rooms/new", class:"dropdown-item" %>
+                <%= link_to "予約済みルーム一覧", "/reservations", class:"dropdown-item" %>
+                <%= link_to "登録済みルーム一覧", "/rooms", class: "dropdown-item" %>
+                <%= link_to "マイページ", "/users/#{current_user.id}", class:"dropdown-item"%>
+                <%= link_to "ログアウト", "/users/sign_out", method: :delete, class:"dropdown-item"%>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <% else %> 
+          <div class="header-right-nav">
+              <div class="nav-item">
+                <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary my-2 mx-3" %>
+                <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary" %>
+              </div>
+          </div>
+        <% end %>
+    
+    </div>
+  </div>
+</header>
+
+    <% if flash[:notice] %>
+      <div class="notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
     <%= yield %>
+    
+    <footer class="footer">
+      <p>© 2021 YURIWADA.INC.</p>
+    </footer>
   </body>
 </html>
